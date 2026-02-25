@@ -1,3 +1,9 @@
+# app/config.py (또는 app/db/session.py)
+from dotenv import load_dotenv
+load_dotenv()  # <= 최상단에서 1번
+
+import os
+DATABASE_URL = os.getenv("DATABASE_URL")
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
