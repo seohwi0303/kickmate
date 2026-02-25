@@ -230,3 +230,5 @@ Thumbs.db
 
 # archives
 *.zip
+
+.env

@@ -13,7 +13,7 @@ class User(Base):
 
     # (MVP Auth)
     email = Column(String, unique=True, index=True, nullable=True)
-    password_hash = Column(String, nullable=True)
+    encrypted_password = Column(String, nullable=False)
 
     elo = Column(Integer, default=1200, nullable=False)
     level = Column(String, default="Bronze", nullable=False)

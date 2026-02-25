@@ -5,9 +5,11 @@ from sqlalchemy import text
 from app.db.session import get_db
 from app.db.init_db import init_db
 from app.routers.users import router as users_router
+from app.routers.auth import router as auth_router
 
 app = FastAPI()
 
+app.include_router(auth_router)
 
 @app.on_event("startup")
 def on_startup():
@@ -32,8 +34,4 @@ from app.routers.relationships import router as relationships_router
 app.include_router(users_router)
 app.include_router(relationships_router)
 
-from app.routers.auth import router as auth_router
-app.include_router(auth_router)
 
-from app.routers.auth import router as auth_router
-app.include_router(auth_router)
