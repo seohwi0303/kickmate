@@ -34,3 +34,6 @@ app.include_router(relationships_router)
 
 from app.routers.auth import router as auth_router
 app.include_router(auth_router)
+
+from app.routers.auth import router as auth_router
+app.include_router(auth_router)
