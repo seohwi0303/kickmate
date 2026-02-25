@@ -9,13 +9,13 @@ from app.core.config import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
-def hash_password(password: str) -> str:
+
+
+def password_hash(password: str) -> str:
     return pwd_context.hash(password)
 
-
-def verify_password(password: str, hashed: str) -> bool:
-    return pwd_context.verify(password, hashed)
-
+def verify_password(password: str, hashed_password: str) -> bool:
+    return pwd_context.verify(password, hashed_password)
 
 def create_access_token(subject: str, expires_minutes: Optional[int] = None) -> str:
     expire = datetime.now(timezone.utc) + timedelta(

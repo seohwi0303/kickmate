@@ -5,13 +5,12 @@ from sqlalchemy.dialects.postgresql import UUID
 from app.db.base import Base
 
 class User(Base):
-    __tablename__ = "users"
+    __tablename__ = "app_users"  # ✅ auth.users 말고 우리 테이블
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     handle = Column(String, unique=True, index=True, nullable=False)
     display_name = Column(String, nullable=True)
 
-    # (MVP Auth)
     email = Column(String, unique=True, index=True, nullable=True)
     encrypted_password = Column(String, nullable=False)
 
